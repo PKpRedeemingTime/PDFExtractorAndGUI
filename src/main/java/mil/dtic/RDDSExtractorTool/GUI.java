@@ -85,7 +85,7 @@ public class GUI {
 		mainBodyPanel.add(zipPanel, mbpGBC);
 		
 		statusLabel = new JLabel();
-		statusLabel.setText("<html><span style='font-size:15px; color:red'><BR>No selections made...</span></html>");
+		statusLabel.setText("<html><span style='font-size:15px; color:red'><br>No selections made...</span></html>");
 		mbpGBC.gridx = 0;
 		mbpGBC.gridy = 2;
 		mainBodyPanel.add(statusLabel, mbpGBC);
@@ -93,7 +93,7 @@ public class GUI {
 	
 	public void addComponentsToPDFPanel() {
 		pdfPanelLabel = new JLabel();
-		pdfPanelLabel.setText("<html><span style='font-size:15px; color:red'>If you are extracting from JBook(s) from the Comptroller, please select the directory that contains the PDF(s).<BR></span></html>");
+		pdfPanelLabel.setText("<html><span style='font-size:15px; color:red'><br>If you are extracting from JBook(s) from the Comptroller, please select the directory that contains the PDF(s).<br></span></html>");
 		pdfGBC.gridx = 0;
 		pdfGBC.gridy = 0;
 		pdfPanel.add(pdfPanelLabel, pdfGBC);
@@ -115,7 +115,7 @@ public class GUI {
 	
 	public void addComponentsToZipPanel() {
 		zipPanelLabel = new JLabel();
-		zipPanelLabel.setText("<html><span style='font-size:15px; color:red'><BR>If you are extracting from a zip from the RestApp, please select the zip file and choose a directory to save the extracted files.<BR></span></html>");
+		zipPanelLabel.setText("<html><span style='font-size:15px; color:red'><br>If you are extracting from a zip from the RestApp, please select the zip file and choose a directory to save the extracted files.<br></span></html>");
 		zipGBC.gridx = 0;
 		zipGBC.gridy = 0;
 		zipGBC.gridwidth = 2;
@@ -151,7 +151,7 @@ public class GUI {
 	
 	public void addComponentsToZipFileChooser() {
 		zipFileChooserLabel = new JLabel();
-		zipFileChooserLabel.setText("<html><span style='font-size:15px; color:red'><BR>Please select a zip to extract.</span></html>");
+		zipFileChooserLabel.setText("<html><span style='font-size:15px; color:red'><br>Please select a zip to extract.</span></html>");
 		zfcGBC.gridx = 0;
 		zfcGBC.gridy = 0;
 		zipFileChooser.add(zipFileChooserLabel, zfcGBC);
@@ -167,7 +167,7 @@ public class GUI {
 	
 	public void addComponentsToDestDirectoryChooser() {
 		destDirectoryChooserLabel = new JLabel();
-		destDirectoryChooserLabel.setText("<html><span style='font-size:15px; color:red'><BR>Please select a destination directory.</span></html>");
+		destDirectoryChooserLabel.setText("<html><span style='font-size:15px; color:red'><br>Please select a destination directory.</span></html>");
 		ddcGBC.gridx = 0;
 		ddcGBC.gridy = 0;
 		destDirectoryChooser.add(destDirectoryChooserLabel, ddcGBC);
@@ -189,27 +189,27 @@ public class GUI {
 	        	File selectedFile = pdfDirectoryJFC.getCurrentDirectory();
 	        	targetDir = selectedFile.getPath();
 	        	if(targetDir.contentEquals("Z:\\Desktop") || targetDir.contentEquals("")) {
-	        		statusLabel.setText("<html><span style='font-size:15px; color:red'><BR>Please choose a directory.</span></html>");
+	        		statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Please choose a directory.</span></html>");
 	        		return;
 	        	}
 	        	ExtractAllPDFsFromDirectory.extractAttachments(targetDir);
-	        	statusLabel.setText("<html><span style='font-size:15px; color:red'>Your PDF files have been extracted. Please verify in the target folder.</span></html>");
+	        	statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Your PDF files have been extracted. Please verify in the target folder.</span></html>");
 	        } else if(command.equals( "ExtractZip"))  {
 	        	try {
 	        		File selectedZip = zipFileJFC.getSelectedFile();
 	        		zipFile = selectedZip.getPath();
 	        	} catch(NullPointerException npe) {
-	        		statusLabel.setText("<html><span style='font-size:15px; color:red'><BR>Please choose a zip file to extract.</span></html>");
+	        		statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Please choose a zip file to extract.</span></html>");
 	        		return;
 	        	}
 	        	File selectedDestination = destDirectoryJFC.getCurrentDirectory();
 				destDirectory = selectedDestination.getPath();
-				statusLabel.setText("<html><span style='font-size:15px; color:red'>Your files have been extracted. Please verify in the target folder.</span></html>");
+				statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Your files have been extracted. Please verify in the target folder.</span></html>");
 				if(destDirectory.contentEquals("Z:\\Desktop") || destDirectory.contentEquals("")) {
-					statusLabel.setText("<html><span style='font-size:15px; color:red'><BR>Please choose a destination directory for your files.</span></html>");
+					statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Please choose a destination directory for your files.</span></html>");
 					return;
 				} else if(zipFile.contentEquals("")) {
-					statusLabel.setText("<html><span style='font-size:15px; color:red'>Please choose a zip file to extract.</span></html>");
+					statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Please choose a zip file to extract.</span></html>");
 				} else {
 					try {
 						ExtractFromRestAppZip.extractPDFs(zipFile, destDirectory);
@@ -217,7 +217,7 @@ public class GUI {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					statusLabel.setText("<html><span style='font-size:15px; color:red'><BR>Your files have been extracted. Please verify in the destination directory.</span></html>");
+					statusLabel.setText("<html><span style='font-size:15px; color:red'><br>Your files have been extracted. Please verify in the destination directory.</span></html>");
 				}
 			}
 		}
